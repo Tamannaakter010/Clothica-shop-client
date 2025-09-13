@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../shared/Navbar/Navbar";
 import Footer from "../shared/Footer/Footer";
-import Searchbar from "../shared/Searchbar/Searchbar";
+//import Searchbar from "../shared/Searchbar/Searchbar";
 
 
 const Main = () => {
@@ -12,7 +12,7 @@ const Main = () => {
     <div className="min-h-screen flex flex-col">
       {!noHeaderFooter && <Navbar user={null} cart={[]} handleLogOut={() => {}} />}
        
-      {!noHeaderFooter && <Searchbar user={null} cart={[]} wishlist={[]} handleLogOut={() => {}} />}
+     {/* {!noHeaderFooter && <Searchbar user={null} cart={[]} wishlist={[]} handleLogOut={() => {}} />}*/}
      
       <main className="">
         <Outlet />
