@@ -2,9 +2,9 @@ import React from "react";
 
 const Kids = () => {
   const items = [
-    { id: 1, title: "Cartoon T-Shirt", description: "Fun t-shirt with colorful cartoon prints.", image: "https://via.placeholder.com/300x300?text=Cartoon+T-Shirt" },
-    { id: 2, title: "Toy Car Set", description: "Set of durable toy cars for kids.", image: "https://via.placeholder.com/300x300?text=Toy+Car+Set" },
-    { id: 3, title: "Baby Dress", description: "Adorable dress for little ones.", image: "https://via.placeholder.com/300x300?text=Baby+Dress" },
+    { id: 1, title: "Cartoon T-Shirt", description: "Fun t-shirt with colorful cartoon prints.", image: "https://i.ibb.co.com/YT8vtTbg/kids.jpg" },
+    { id: 2, title: "Toy Car Set", description: "Set of durable toy cars for kids.", image: "https://i.ibb.co.com/YT8vtTbg/kids.jpg" },
+    { id: 3, title: "Baby Dress", description: "Adorable dress for little ones.", image: "https://i.ibb.co.com/YT8vtTbg/kids.jpg" },
   ];
 
   return (

@@ -2,9 +2,9 @@ import React from "react";
 
 const Sale = () => {
   const items = [
-    { id: 1, title: "Discounted Dress", description: "Elegant dress now at 50% off.", image: "https://via.placeholder.com/300x300?text=Discounted+Dress" },
-    { id: 2, title: "Clearance Shoes", description: "Stylish shoes with huge discounts.", image: "https://via.placeholder.com/300x300?text=Clearance+Shoes" },
-    { id: 3, title: "Sale Bag", description: "Trendy bag reduced for a limited time.", image: "https://via.placeholder.com/300x300?text=Sale+Bag" },
+    { id: 1, title: "Discounted Dress", description: "Elegant dress now at 50% off.", image: "https://i.ibb.co.com/CKbBHYDG/pexels-max-fischer-5869620.jpg" },
+    { id: 2, title: "Clearance Shoes", description: "Stylish shoes with huge discounts.", image: "https://i.ibb.co.com/CKbBHYDG/pexels-max-fischer-5869620.jpg" },
+    { id: 3, title: "Sale Bag", description: "Trendy bag reduced for a limited time.", image: "https://i.ibb.co.com/CKbBHYDG/pexels-max-fischer-5869620.jpg" },
   ];
 
   return (

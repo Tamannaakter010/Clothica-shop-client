@@ -7,25 +7,25 @@ const Wedding = () => {
       id: 1,
       title: "Bridal Gown",
       description: "Exquisite white gown with lace details for the bride.",
-      image: "https://via.placeholder.com/300x300?text=Bridal+Gown",
+      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
     {
       id: 2,
       title: "Groom Tuxedo",
       description: "Classic black tuxedo with a modern fit.",
-      image: "https://via.placeholder.com/300x300?text=Groom+Tuxedo",
+      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
     {
       id: 3,
       title: "Wedding Ring Set",
       description: "Elegant gold and diamond ring set for the couple.",
-      image: "https://via.placeholder.com/300x300?text=Wedding+Ring+Set",
+      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
     {
       id: 4,
       title: "Bridal Veil",
       description: "Delicate veil with intricate embroidery.",
-      image: "https://via.placeholder.com/300x300?text=Bridal+Veil",
+      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
   ];
 

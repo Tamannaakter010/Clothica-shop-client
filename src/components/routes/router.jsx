@@ -15,8 +15,8 @@ import Sale from "../Shop/Sale/Sale";
 import Wedding from "../Shop/Wedding/Wedding";
 import Women from "../Shop/Women/Women";
 import Men from "../Shop/Men/Men";
-import About from "../Pages/About/about";
-import Pages from "../Pages/pages";
+
+import Pages from "../Pages/Pages";
 import Login from "../shared/Searchbar/Login";
 import Register from "../shared/Searchbar/Register";
 import Blog from "../HomePage/Blog/Blog";
@@ -44,10 +44,7 @@ export const router = createBrowserRouter([
         {
         path: "page",
         element: <Pages />,
-        children: [
-          { path: "about", element: <About /> },
         
-        ],
       },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },

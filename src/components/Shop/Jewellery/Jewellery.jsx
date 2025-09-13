@@ -2,9 +2,9 @@ import React from "react";
 
 const Jewellery = () => {
   const items = [
-    { id: 1, title: "Gold Necklace", description: "Elegant gold necklace with a pendant.", image: "https://via.placeholder.com/300x300?text=Gold+Necklace" },
-    { id: 2, title: "Silver Earrings", description: "Dazzling silver earrings for daily wear.", image: "https://via.placeholder.com/300x300?text=Silver+Earrings" },
-    { id: 3, title: "Pearl Bracelet", description: "Classic pearl bracelet for special occasions.", image: "https://via.placeholder.com/300x300?text=Pearl+Bracelet" },
+    { id: 1, title: "Gold Necklace", description: "Elegant gold necklace with a pendant.", image: "https://i.ibb.co.com/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
+    { id: 2, title: "Silver Earrings", description: "Dazzling silver earrings for daily wear.", image: "https://i.ibb.co.com/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
+    { id: 3, title: "Pearl Bracelet", description: "Classic pearl bracelet for special occasions.", image: "https://i.ibb.co.com/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
   ];
 
   return (

@@ -1,31 +1,31 @@
 import React from "react";
 
 const Men = () => {
-  // Dummy data for men's items
+
   const items = [
     {
       id: 1,
       title: "Slim Fit Shirt",
       description: "Stylish shirt for a sharp look.",
-      image: "https://via.placeholder.com/300x300?text=Slim+Fit+Shirt",
+      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
     },
     {
       id: 2,
       title: "Leather Jacket",
       description: "Rugged leather jacket for all seasons.",
-      image: "https://via.placeholder.com/300x300?text=Leather+Jacket",
+      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
     },
     {
       id: 3,
       title: "Formal Suit",
       description: "Tailored suit for business or events.",
-      image: "https://via.placeholder.com/300x300?text=Formal+Suit",
+      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
     },
     {
       id: 4,
       title: "Casual Sneakers",
       description: "Comfortable sneakers for daily wear.",
-      image: "https://via.placeholder.com/300x300?text=Casual+Sneakers",
+      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
     },
   ];
 

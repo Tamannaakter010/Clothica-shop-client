@@ -2,9 +2,9 @@ import React from "react";
 
 const Women = () => {
   const items = [
-    { id: 1, title: "Summer Dress", description: "Light and breezy dress for summer.", image: "https://via.placeholder.com/300x300?text=Summer+Dress" },
-    { id: 2, title: "Leather Handbag", description: "Stylish handbag for everyday use.", image: "https://via.placeholder.com/300x300?text=Leather+Handbag" },
-    { id: 3, title: "High Heels", description: "Elegant heels for special occasions.", image: "https://via.placeholder.com/300x300?text=High+Heels" },
+    { id: 1, title: "Summer Dress", description: "Light and breezy dress for summer.", image: "https://i.ibb.co.com/5hXhmwGF/man.jpg" },
+    { id: 2, title: "Leather Handbag", description: "Stylish handbag for everyday use.", image: "https://i.ibb.co.com/5hXhmwGF/man.jpg" },
+    { id: 3, title: "High Heels", description: "Elegant heels for special occasions.", image: "https://i.ibb.co.com/5hXhmwGF/man.jpg" },
   ];
 
   return (

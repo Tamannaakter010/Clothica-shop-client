@@ -2,9 +2,9 @@ import React from "react";
 
 const HomeDecor = () => {
   const items = [
-    { id: 1, title: "Rustic Wall Shelf", description: "Handcrafted wooden shelf for modern homes.", image: "https://via.placeholder.com/300x300?text=Rustic+Wall+Shelf" },
-    { id: 2, title: "Ceramic Vase", description: "Elegant vase with intricate patterns.", image: "https://via.placeholder.com/300x300?text=Ceramic+Vase" },
-    { id: 3, title: "Candle Holder", description: "Stylish holder for a cozy ambiance.", image: "https://via.placeholder.com/300x300?text=Candle+Holder" },
+    { id: 1, title: "Rustic Wall Shelf", description: "Handcrafted wooden shelf for modern homes.", image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg" },
+    { id: 2, title: "Ceramic Vase", description: "Elegant vase with intricate patterns.", image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg" },
+    { id: 3, title: "Candle Holder", description: "Stylish holder for a cozy ambiance.", image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg" },
   ];
 
   return (

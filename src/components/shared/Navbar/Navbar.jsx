@@ -113,7 +113,7 @@ const Navbar = () => {
               )}
             </li>
 
-            {/* Pages dropdown */}
+            {/* Pages dropdown 
             <li className="relative">
               <button onClick={() => setPagesOpen(!pagesOpen)}>
                 Pages
@@ -128,7 +128,7 @@ const Navbar = () => {
                 </ul>
               )}
             </li>
-
+  */}
             <li>
               <Link to="/blog">Blog</Link>
             </li>

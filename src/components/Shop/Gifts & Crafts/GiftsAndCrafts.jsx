@@ -1,31 +1,31 @@
 import React from "react";
 
 const GiftsAndCrafts = () => {
-  // Dummy data for gifts and crafts items
+
   const items = [
     {
       id: 1,
       title: "Handmade Bracelet",
       description: "A colorful beaded bracelet perfect for any occasion.",
-      image: "https://via.placeholder.com/300x300?text=Handmade+Bracelet",
+      image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg",
     },
     {
       id: 2,
       title: "Clay Pot Decor",
       description: "Eco-friendly clay pot painted with unique designs.",
-      image: "https://via.placeholder.com/300x300?text=Clay+Pot+Decor",
+      image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg",
     },
     {
       id: 3,
       title: "Knitted Scarf",
       description: "Warm and cozy scarf made with soft yarn.",
-      image: "https://via.placeholder.com/300x300?text=Knitted+Scarf",
+      image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg",
     },
     {
       id: 4,
       title: "Wooden Ornament",
       description: "Hand-carved wooden piece for holiday decor.",
-      image: "https://via.placeholder.com/300x300?text=Wooden+Ornament",
+      image: "https://i.ibb.co.com/W4jxnwBJ/homedecor.jpg",
     },
   ];
 
