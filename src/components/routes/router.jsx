@@ -16,7 +16,7 @@ import Wedding from "../Shop/Wedding/Wedding";
 import Women from "../Shop/Women/Women";
 import Men from "../Shop/Men/Men";
 
-import Pages from "../Pages/Pages";
+
 import Login from "../shared/Searchbar/Login";
 import Register from "../shared/Searchbar/Register";
 import Blog from "../HomePage/Blog/Blog";
@@ -41,11 +41,7 @@ export const router = createBrowserRouter([
            { path: "men", element: <Men /> },
         ],
       },
-        {
-        path: "page",
-        element: <Pages />,
-        
-      },
+       
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
           { path: "blog", element: <Blog /> },

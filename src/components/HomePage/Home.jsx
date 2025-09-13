@@ -1,4 +1,4 @@
-import Latest from "../shared/latest/latest";
+import Latest from "../shared/Latest/Latest";
 import Banner from "../HomePage/Banner/Banner";
 import Deal from "./Deal/Deal";
 import FeaturedCategories from "./FeaturedCategories/FeaturedCategories";

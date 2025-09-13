@@ -1,12 +1,12 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 
 const NewArrivals = ({ products = [] }) => {
   const defaultProducts = [
     { id: 1, image: "https://i.ibb.co.com/rRFfymGY/women.jpg", title: "Men's Shirt", link: "/shop/men" },
     { id: 2, image: "https://i.ibb.co.com/rRFfymGY/women.jpg", title: "Women's Dress", link: "/shop/women" },
-    { id: 3, image: "https://i.ibb.co/RppHv7xB/crafts.jpg", title: "Smartwatch", link: "/shop/electronics" },
-    { id: 4, image: "https://i.ibb.co/RppHv7xB/crafts.jpg", title: "Decor Vase", link: "/shop/homedecor" },
+    { id: 3, image: "https://i.ibb.co.com/rRFfymGY/women.jpg", title: "Smartwatch", link: "/shop/electronics" },
+    { id: 4, image: "https://i.ibb.co.com/rRFfymGY/women.jpg", title: "Decor Vase", link: "/shop/homedecor" },
     { id: 5, image: "https://i.ibb.co.com/rRFfymGY/women.jpg", title: "Necklace", link: "/shop/jewellery" },
     { id: 6, image: "https://i.ibb.co.com/rRFfymGY/women.jpg", title: "Kids Toy", link: "/shop/kids" },
   ];

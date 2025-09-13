@@ -1,7 +1,7 @@
-import React from "react";
+
 
 const Wedding = () => {
-  // Dummy data for wedding items
+
   const items = [
     {
       id: 1,

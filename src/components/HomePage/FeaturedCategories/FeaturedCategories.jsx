@@ -28,7 +28,7 @@ const FeaturedCategories = ({ categories = [] }) => {
     },
     {
       id: 5,
-      image: "https://i.ibb.co.com/1JRVHknw/crafts.jpg",
+      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
       title: "Jewellery",
       link: "/shop/jewellery",
     },
@@ -69,7 +69,7 @@ const FeaturedCategories = ({ categories = [] }) => {
             className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out hover:bg-gray-100 hover:scale-105 hover:shadow-xl hover:border-blue-500 border-2 border-transparent animate-fadeSlideUp flex flex-col"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            {/* Image Area - 80% */}
+    
             <div className="flex-grow" style={{ flexBasis: "80%" }}>
               <img
                 src={category.image}
@@ -78,7 +78,7 @@ const FeaturedCategories = ({ categories = [] }) => {
               />
             </div>
 
-            {/* Text Area - 20% */}
+        
             <div
               className="p-2 text-center"
               style={{ flexBasis: "20%" }}

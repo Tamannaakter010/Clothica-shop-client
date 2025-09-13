@@ -1,8 +1,8 @@
 
-import React from "react";
+
 
 const Blog = () => {
-  // Dummy data for blog posts
+ 
   const posts = [
     {
       id: 1,

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Latest = () => {

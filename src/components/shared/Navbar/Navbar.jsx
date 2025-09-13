@@ -9,10 +9,10 @@ const Navbar = () => {
   return (
     <div className="navbar top-0 left-0 w-full bg-orange-500 text-white z-50 h-16">
       <div className="navbar px-4 flex justify-between items-center h-full">
-        {/* Logo */}
+      
         <div className="font-bold text-lg">Clothica</div>
 
-        {/* Mobile Menu Button */}
+        {/* pn */}
         <div className="lg:hidden">
           <button
             className="btn btn-ghost p-1 h-8 w-8"
@@ -35,14 +35,14 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* pn */}
         <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
           <ul className="menu menu-compact flex flex-col items-center gap-2 p-2 bg-orange-500 rounded-box shadow mt-2">
             <li>
               <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
             </li>
 
-            {/* Shop dropdown for mobile */}
+            {/* Shop r pn */}
             <li className="relative">
               <button onClick={() => setShopOpen(!shopOpen)}>Shop</button>
               {shopOpen && (
@@ -63,7 +63,7 @@ const Navbar = () => {
               )}
             </li>
 
-            {/* Pages dropdown for mobile */}
+            {/* Pages  4 mobile */}
             <li className="relative">
               <button onClick={() => setPagesOpen(!pagesOpen)}>Pages</button>
               {pagesOpen && (
