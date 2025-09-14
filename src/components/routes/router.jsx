@@ -3,10 +3,6 @@ import Main from "../layout/Main";
 import Home from "../HomePage/Home";
 import Shop from "../Shop/Shop";
 
-
-
-
-
 import GiftsAndCrafts from "../Shop/Gifts & Crafts/GiftsAndCrafts";
 import HomeDecor from "../Shop/HomeDecor/HomeDecor";
 import Jewellery from "../Shop/Jewellery/Jewellery";
@@ -16,10 +12,13 @@ import Wedding from "../Shop/Wedding/Wedding";
 import Women from "../Shop/Women/Women";
 import Men from "../Shop/Men/Men";
 
-
 import Login from "../shared/Searchbar/Login";
 import Register from "../shared/Searchbar/Register";
 import Blog from "../HomePage/Blog/Blog";
+import Shirt from "../Shirt/Shirt";
+
+
+
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +26,7 @@ export const router = createBrowserRouter([
     element: <Main />,
     children: [
       { path: "/", element: <Home /> },
+
       {
         path: "shop",
         element: <Shop />,
@@ -38,13 +38,16 @@ export const router = createBrowserRouter([
           { path: "sale", element: <Sale /> },
           { path: "wedding", element: <Wedding /> },
           { path: "women", element: <Women /> },
-           { path: "men", element: <Men /> },
+          { path: "men", element: <Men /> },
         ],
       },
-       
-        { path: "login", element: <Login /> },
-        { path: "register", element: <Register /> },
-          { path: "blog", element: <Blog /> },
+
+    
+      { path: "shirt/:id", element: <Shirt /> },
+
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+      { path: "blog", element: <Blog /> },
     ],
   },
 ]);

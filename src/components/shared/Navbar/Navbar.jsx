@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
@@ -41,7 +41,7 @@ const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
         </div>
 
         <ul className="menu menu-compact flex flex-col gap-3 p-4 text-white text-lg">
-          <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
+          <li><NavLink to="/" onClick={() => setMobileMenuOpen(false)}>Home</NavLink></li>
 
           {/* Shop Mobile */}
           <li>
@@ -50,7 +50,7 @@ const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
               <ul className="ml-4 mt-2 space-y-1">
                 {["GiftsAndCrafts","HomeDecor","Jewellery","Kids","Sale","Wedding","Women","Men"].map((cat) => (
                   <li key={cat}>
-                    <Link to={`/shop/${cat.toLowerCase()}`} onClick={() => {setShopOpen(false); setMobileMenuOpen(false);}}>{cat}</Link>
+                    <NavLink to={`/shop/${cat.toLowerCase()}`} onClick={() => {setShopOpen(false); setMobileMenuOpen(false);}}>{cat}</NavLink>
                   </li>
                 ))}
               </ul>
@@ -62,8 +62,8 @@ const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
             <button onClick={() => setPagesOpen(!pagesOpen)} className="w-full  text-left">Pages</button>
             {pagesOpen && (
               <ul className="ml-4 mt-2 space-y-1">
-                <li><Link to="/pages/about" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
-                <li><Link to="/pages/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
+                <li><NavLink to="/pages/about" onClick={() => setMobileMenuOpen(false)}>About</NavLink></li>
+                <li><NavLink to="/pages/contact" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink></li>
               </ul>
             )}
           </li>
