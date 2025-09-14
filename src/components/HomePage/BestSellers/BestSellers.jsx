@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import BestSell from "../../../assets/Banner/bestsell.jpg"
 
 const Bestsellers = () => {
   return (
     <section className="relative rounded-xl overflow-hidden shadow-2xl py-15 px-6 sm:px-12 lg:px-24 flex flex-col items-center justify-center text-center bg-gray-900">
       {/* Background Image */}
       <img
-        src="https://i.ibb.co/TBwdm8Wh/pexels-karolina-grabowska-5650041.jpg"
+        src={BestSell}
         alt="Bestsellers"
         className="absolute inset-0 w-full h-full object-cover opacity-40"
       />

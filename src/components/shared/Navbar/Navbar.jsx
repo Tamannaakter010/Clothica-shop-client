@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaBars } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
   const [shopOpen, setShopOpen] = useState(false);
+  const [pagesOpen, setPagesOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="navbar top-0 left-0 w-full bg-gray-600 text-white z-50 h-16 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-      {/* Left: Brand */}
-      <div className="font-bold text-xl">Clothica</div>
+    <nav className="fixed top-0 left-0 w-full bg-gray-600  text-white z-50 h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
+      
+      {/* Brand */}
+      <div className="font-bold text-xl">CloThiCa</div>
 
       {/* Mobile Menu Button */}
       <div className="lg:hidden">
@@ -18,91 +20,83 @@ const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
           className="btn btn-ghost p-1 h-8 w-8"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <FaBars className="h-5 w-5" />
+          {mobileMenuOpen ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Middle: Menu */}
-      <div className={`lg:flex ${mobileMenuOpen ? "block" : "hidden"} lg:block`}>
-        <ul className="menu menu-horizontal lg:menu-horizontal gap-x-6 text-sm font-medium lg:space-x-6">
-          <li><Link to="/" className="text-white hover:text-gray-200">Home</Link></li>
-          <li className="relative">
-            <button onClick={() => setShopOpen(!shopOpen)} className="hover:text-gray-200">
-              Shop
-            </button>
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed top-0 left-0 w-64 h-full bg-gray-300 z-50 transform transition-transform duration-300 ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center px-4 py-3 border-b bg-gray-500 border-gray-200">
+          <span className="font-bold text-lg">Menu</span>
+          <button
+            className="btn btn-ghost p-2.5 h-8 w-8"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <FaTimes className="h-5 w-5" />
+          </button>
+        </div>
+
+        <ul className="menu menu-compact flex flex-col gap-3 p-4 text-white text-lg">
+          <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
+
+          {/* Shop Mobile */}
+          <li>
+            <button onClick={() => setShopOpen(!shopOpen)} className="w-full text-left">Shop</button>
             {shopOpen && (
-              <ul
-                className="absolute mt-2 bg-gray-500 rounded-box p-2 shadow text-white"
-                onMouseLeave={() => setShopOpen(false)}
-              >
-                <li><Link to="/shop/giftsandcrafts" className=" text-white hover:text-gray-200">GiftsAndCrafts</Link></li>
-                <li><Link to="/shop/homedecor" className="text-white hover:text-gray-200">HomeDecor</Link></li>
-                <li><Link to="/shop/jewellery" className="text-white hover:text-gray-600">Jewellery</Link></li>
-                <li><Link to="/shop/kids" className="text-white hover:text-gray-200">Kids</Link></li>
-                <li><Link to="/shop/sale" className="text-white hover:text-gray-200">Sale</Link></li>
-                <li><Link to="/shop/wedding" className="text-white hover:text-gray-200">Wedding</Link></li>
-                <li><Link to="/shop/women" className="text-white hover:text-gray-200">Women</Link></li>
-                <li><Link to="/shop/men" className="text-white hover:text-gray-200">Men</Link></li>
+              <ul className="ml-4 mt-2 space-y-1">
+                {["GiftsAndCrafts","HomeDecor","Jewellery","Kids","Sale","Wedding","Women","Men"].map((cat) => (
+                  <li key={cat}>
+                    <Link to={`/shop/${cat.toLowerCase()}`} onClick={() => {setShopOpen(false); setMobileMenuOpen(false);}}>{cat}</Link>
+                  </li>
+                ))}
               </ul>
             )}
           </li>
-          <li><Link to="/blog" className=" text-white hover:text-gray-200">Blog</Link></li>
-          <li><Link to="/pages/contact" className="text-white hover:text-gray-200">Contact</Link></li>
+
+          {/* Pages Mobile */}
+          <li>
+            <button onClick={() => setPagesOpen(!pagesOpen)} className="w-full  text-left">Pages</button>
+            {pagesOpen && (
+              <ul className="ml-4 mt-2 space-y-1">
+                <li><Link to="/pages/about" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
+                <li><Link to="/pages/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
+              </ul>
+            )}
+          </li>
+
+          <li><Link to="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</Link></li>
         </ul>
       </div>
 
-      {/* Right: Wishlist, Login, Cart, Search */}
-      <div className="flex items-center gap-4">
-        {/* Wishlist */}
-        <Link to="/wishlist" className="relative flex items-center gap-1 text-white hover:text-gray-200">
-          <FaHeart className="text-lg" />
-          <span className="badge badge-secondary absolute -top-3 -right-5 text-xs">
-            {wishlist.length}
-          </span>
+      {/* Desktop Menu */}
+      <div className="hidden lg:flex items-center gap-6">
+        <ul className="menu menu-horizontal gap-x-3 bg-gray-600 text-sm">
+          <li><Link to="/">Home</Link></li>
           
-        </Link>
-
-        {/* Login/User */}
-        <div className="dropdown dropdown-end">
-          <label
-            tabIndex={0}
-            className="flex items-center gap-1 cursor-pointer hover:bg-pink-700 px-2 py-1 rounded"
-            onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-          >
-            <FaUser className="text-lg" />
-            <span className="hidden sm:inline font-medium">
-           
-            </span>
-          </label>
-          {userDropdownOpen && (
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-pink-600 rounded-box w-40 mt-2 text-white"
-              onBlur={() => setUserDropdownOpen(false)}
-            >
-              {!user ? (
-                <>
-                  <li><Link to="/login" className="hover:text-gray-200">Login</Link></li>
-                  <li><Link to="/register" className="hover:text-gray-200">Register</Link></li>
-                </>
-              ) : (
-                <>
-                  <li><Link to="/account" className="hover:text-gray-200">My Account</Link></li>
-                  <li><button onClick={handleLogOut} className="hover:text-gray-200">Logout</button></li>
-                </>
-              )}
+          <li className="relative group">
+            <button>Shop</button>
+            <ul className="absolute hidden group-hover:block mt-2 bg-gray-200 rounded shadow p-2 w-48 text-white">
+              {["GiftsAndCrafts","HomeDecor","Jewellery","Kids","Sale","Wedding","Women","Men"].map((cat) => (
+                <li key={cat}><Link to={`/shop/${cat.toLowerCase()}`}>{cat}</Link></li>
+              ))}
             </ul>
-          )}
-        </div>
+          </li>
 
-        {/* Cart */}
-        <Link to="/cart" className="relative flex items-center gap-1 text-white hover:text-gray-200">
-          <FaShoppingCart className="text-lg" />
-          <span className="badge badge-secondary absolute -top-3 -right-5 text-xs">
-            {cart.length}
-          </span>
-        
-        </Link>
+          <li className="relative group ">
+            <button>Pages</button>
+            <ul className="absolute hidden group-hover:block mt-2 bg-gray-200 rounded shadow p-2 w-40 text-white">
+              <li><Link to="/pages/about">About</Link></li>
+              <li><Link to="/pages/contact">Contact</Link></li>
+            </ul>
+          </li>
+
+          <li><Link to="/blog">Blog</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+        </ul>
 
         {/* Search */}
         <div className="relative flex items-center">
@@ -114,7 +108,45 @@ const Navbar = ({ user, cart = [], wishlist = [], handleLogOut }) => {
           <FaSearch className="absolute right-2 text-gray-600 cursor-pointer" />
         </div>
       </div>
-    </div>
+
+      {/* Right Icons */}
+      <div className="flex items-center gap-4">
+        <Link to="/wishlist" className="relative flex items-center gap-1 text-white hover:text-gray-200">
+          <FaHeart className="text-lg" />
+          <span className="badge badge-secondary absolute -top-3 -right-5 text-xs">{wishlist.length}</span>
+        </Link>
+
+        <Link to="/cart" className="relative flex items-center gap-1 text-white hover:text-gray-200">
+          <FaShoppingCart className="text-lg" />
+          <span className="badge badge-secondary absolute -top-3 -right-5 text-xs">{cart.length}</span>
+        </Link>
+
+        {/* User Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+            className="flex items-center gap-1 hover:bg-pink-700 px-2 py-1 rounded"
+          >
+            <FaUser className="text-lg" />
+          </button>
+          {userDropdownOpen && (
+            <ul className="absolute right-0 mt-2 w-40 bg-pink-600 text-white rounded shadow p-2">
+              {!user ? (
+                <>
+                  <li><Link to="/login">Login</Link></li>
+                  <li><Link to="/register">Register</Link></li>
+                </>
+              ) : (
+                <>
+                  <li><Link to="/account">My Account</Link></li>
+                  <li><button onClick={handleLogOut}>Logout</button></li>
+                </>
+              )}
+            </ul>
+          )}
+        </div>
+      </div>
+    </nav>
   );
 };
 

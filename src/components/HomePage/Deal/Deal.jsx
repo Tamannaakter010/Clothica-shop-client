@@ -16,7 +16,7 @@ const Deal = () => {
       title: "Summer Fashion Sale",
       originalPrice: 120,
       discountedPrice: 60,
-      link: "/shop/summer-sale",
+      link: "/shop/sale",
       benefits: ["Limited Time Offer", "Free Delivery"],
     },
     {
@@ -24,7 +24,7 @@ const Deal = () => {
       title: "Home Essentials",
       originalPrice: 80,
       discountedPrice: 40,
-      link: "/shop/home-deals",
+      link: "/shop/homedecor",
       benefits: ["Discounted Price", "Free Delivery"],
     },
     {
@@ -32,7 +32,7 @@ const Deal = () => {
       title: "Free Home Delivery",
       originalPrice: 150,
       discountedPrice: 0,
-      link: "/shop/home-deals",
+      link: "/shop/sale",
       benefits: ["Free Delivery on All Orders"],
     },
   ];

@@ -5,12 +5,13 @@ import FeaturedCategories from "./FeaturedCategories/FeaturedCategories";
 import NewArrivals from "./NewArrival/NewArrivals";
 import BestSellers from "./BestSellers/BestSellers";
 import Promo from "./Promo/Promo";
+import OfferPopup from "./PopupModals/PopupModals";
 
 export default function Home() {
   return (
     <div className="mx-auto">
    
-   
+     
       <Banner />
       <Latest />
       <Deal />
@@ -18,6 +19,7 @@ export default function Home() {
       <FeaturedCategories />
        <Promo />
              <NewArrivals />
+               < OfferPopup />
            
        
               

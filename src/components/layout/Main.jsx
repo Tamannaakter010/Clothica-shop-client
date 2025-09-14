@@ -14,7 +14,7 @@ const Main = () => {
        
      {/* {!noHeaderFooter && <Searchbar user={null} cart={[]} wishlist={[]} handleLogOut={() => {}} />}*/}
      
-      <main className="">
+      <main className="mt-16">
         <Outlet />
       </main>
       {!noHeaderFooter && <Footer />}

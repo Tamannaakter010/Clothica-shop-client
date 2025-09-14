@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-neutral text-neutral-content py-12 px-6 sm:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
         {/* Services */}
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Services</h6>
