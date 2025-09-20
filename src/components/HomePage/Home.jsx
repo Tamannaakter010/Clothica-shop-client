@@ -12,17 +12,17 @@ export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // check if popup was shown before
+   
     const hasSeenPopup = localStorage.getItem("hasSeenPopup");
 
     if (!hasSeenPopup) {
       setShowPopup(true);
-      localStorage.setItem("hasSeenPopup", "true"); // store flag
+      localStorage.setItem("hasSeenPopup", "true"); 
     }
   }, []);
 
   return (
-    <div className="mx-auto">
+    <div className="w-full">
       <Banner />
       <Latest />
       <Deal />

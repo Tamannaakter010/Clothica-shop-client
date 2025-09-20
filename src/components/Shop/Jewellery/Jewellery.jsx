@@ -1,10 +1,12 @@
-
+import { useCart } from "../../HomePage/Cart/CartContext";
 
 const Jewellery = () => {
+  const { addToCart } = useCart();
+
   const items = [
-    { id: 1, title: "Gold Necklace", description: "Elegant gold necklace with a pendant.", image: "https://i.ibb.co.com/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
-    { id: 2, title: "Silver Earrings", description: "Dazzling silver earrings for daily wear.", image: "https://i.ibb.co.com/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
-    { id: 3, title: "Pearl Bracelet", description: "Classic pearl bracelet for special occasions.", image: "https://i.ibb.co.com/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
+    { id: 1, title: "Gold Necklace", description: "Elegant gold necklace with a pendant.", image: "https://i.ibb.co/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
+    { id: 2, title: "Silver Earrings", description: "Dazzling silver earrings for daily wear.", image: "https://i.ibb.co/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
+    { id: 3, title: "Pearl Bracelet", description: "Classic pearl bracelet for special occasions.", image: "https://i.ibb.co/MDVHc0kJ/pexels-cottonbro-6640013.jpg" },
   ];
 
   return (
@@ -15,7 +17,13 @@ const Jewellery = () => {
           <div key={item.id} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
             <img src={item.image} alt={item.title} className="w-full h-48 object-cover rounded-md mb-4" />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-gray-600 text-sm">{item.description}</p>
+            <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+            <button
+              onClick={() => addToCart(item)}
+              className="px-3 py-1 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600"
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

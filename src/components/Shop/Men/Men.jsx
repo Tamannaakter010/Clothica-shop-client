@@ -1,32 +1,13 @@
-
+import { useCart } from "../../HomePage/Cart/CartContext";
 
 const Men = () => {
+  const { addToCart } = useCart();
 
   const items = [
-    {
-      id: 1,
-      title: "Slim Fit Shirt",
-      description: "Stylish shirt for a sharp look.",
-      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
-    },
-    {
-      id: 2,
-      title: "Leather Jacket",
-      description: "Rugged leather jacket for all seasons.",
-      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
-    },
-    {
-      id: 3,
-      title: "Formal Suit",
-      description: "Tailored suit for business or events.",
-      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
-    },
-    {
-      id: 4,
-      title: "Casual Sneakers",
-      description: "Comfortable sneakers for daily wear.",
-      image: "https://i.ibb.co.com/rRFfymGY/women.jpg",
-    },
+    { id: 1, title: "Slim Fit Shirt", description: "Stylish shirt for a sharp look.", image: "https://i.ibb.co/rRFfymwGY/women.jpg" },
+    { id: 2, title: "Leather Jacket", description: "Rugged leather jacket for all seasons.", image: "https://i.ibb.co/rRFfymwGY/women.jpg" },
+    { id: 3, title: "Formal Suit", description: "Tailored suit for business or events.", image: "https://i.ibb.co/rRFfymwGY/women.jpg" },
+    { id: 4, title: "Casual Sneakers", description: "Comfortable sneakers for daily wear.", image: "https://i.ibb.co/rRFfymwGY/women.jpg" },
   ];
 
   return (
@@ -44,7 +25,13 @@ const Men = () => {
               className="w-full h-48 object-cover rounded-md mb-4"
             />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-gray-600 text-sm">{item.description}</p>
+            <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+            <button
+              onClick={() => addToCart(item)}
+              className="px-3 py-1 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600"
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

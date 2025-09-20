@@ -1,0 +1,133 @@
+.contact-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #222;
+}
+
+/* Map section */
+.map {
+  margin-bottom: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Flex row */
+.contact-flex {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Contact info (30%) */
+.contact-info {
+  flex: 1.2;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.contact-info p {
+  margin-bottom: 18px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Form container (70%) */
+.form-container {
+  flex: 2.5;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #222;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.contact-form button {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #444;
+}
+
+/* Tablet (<=1200px) */
+@media (max-width: 1200px) {
+  .contact-flex {
+    gap: 20px;
+  }
+  .form-container {
+    padding: 20px;
+  }
+}
+
+/* Mobile (<=900px) */
+@media (max-width: 900px) {
+  .contact-flex {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .form-container {
+    flex: unset;
+    width: 100%;
+  }
+}
+
+/* Small mobile (<=500px) */
+@media (max-width: 500px) {
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .form-container h2 {
+    font-size: 18px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}

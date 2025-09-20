@@ -4,17 +4,17 @@ import BestSell from "../../../assets/Banner/bestsell.jpg"
 const Bestsellers = () => {
   return (
     <section className="relative rounded-xl overflow-hidden shadow-2xl py-15 px-6 sm:px-12 lg:px-24 flex flex-col items-center justify-center text-center bg-gray-900">
-      {/* Background Image */}
+
       <img
         src={BestSell}
         alt="Bestsellers"
         className="absolute inset-0 w-full h-full object-cover opacity-40"
       />
 
-      {/* Dark Overlay */}
+
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      {/* Content */}
+
       <div className="relative z-10 flex flex-col items-center justify-center space-y-6 max-w-3xl">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white animate-fadeInUp">
           🔥 Best Selling Products
@@ -30,7 +30,7 @@ const Bestsellers = () => {
         </Link>
       </div>
 
-      {/* Animations */}
+
       <style>
         {`
           @keyframes fadeInUp {

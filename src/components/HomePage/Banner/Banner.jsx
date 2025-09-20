@@ -4,87 +4,44 @@ import Image2 from "../../../assets/Banner/Banner 2.jpg";
 import Image4 from "../../../assets/Banner/Banner 4.jpg";
 
 const Banner = () => {
-  const fallbackImage = "https://via.placeholder.com/1200x400?text=Image+Not+Available";
+  const fallbackImage = "https://via.placeholder.com/1200x800?text=Image+Not+Available";
+
+  const slides = [
+    {
+      img: Image1,
+      title: "First slide label",
+      desc: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+    },
+    {
+      img: Image2,
+      title: "Second slide label",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+      img: Image4,
+      title: "Third slide label",
+      desc: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
+    },
+  ];
 
   return (
-    <Carousel interval={2000} pause="hover" controls indicators style={{ maxHeight: "300px", overflow: "hidden" }}>
-      <Carousel.Item>
-        <div style={{ position: "relative", maxHeight: "300px" }}>
-          <img
-            className="d-block w-100"
-            src={Image1 || fallbackImage}
-            alt="First slide"
-            onError={(e) => { e.target.src = fallbackImage; }}
-            style={{ objectFit: "cover", height: "300px", width: "100%" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "white",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
-            }}
-          >
-            <h3 className="text-xl font-bold mb-2">First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <Carousel interval={2000} pause="hover" controls indicators>
+      {slides.map((slide, index) => (
+        <Carousel.Item key={index}>
+          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+            <img
+              className="d-block w-full h-full object-cover"
+              src={slide.img || fallbackImage}
+              alt={slide.title}
+              onError={(e) => { e.target.src = fallbackImage; }}
+            />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white px-4 sm:px-6">
+              <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">{slide.title}</h3>
+              <p className="text-sm sm:text-lg md:text-xl">{slide.desc}</p>
+            </div>
           </div>
-        </div>
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <div style={{ position: "relative", maxHeight: "300px" }}>
-          <img
-            className="d-block w-100"
-            src={Image2 || fallbackImage}
-            alt="Second slide"
-            onError={(e) => { e.target.src = fallbackImage; }}
-            style={{ objectFit: "cover", height: "300px", width: "100%" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "white",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
-            }}
-          >
-            <h3 className="text-xl font-bold mb-2">Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <div style={{ position: "relative", maxHeight: "300px" }}>
-          <img
-            className="d-block w-100"
-            src={Image4 || fallbackImage}
-            alt="Third slide"
-            onError={(e) => { e.target.src = fallbackImage; }}
-            style={{ objectFit: "cover", height: "300px", width: "100%" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "white",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
-            }}
-          >
-            <h3 className="text-xl font-bold mb-2">Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-        </div>
-      </Carousel.Item>
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 };

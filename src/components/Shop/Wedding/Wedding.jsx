@@ -1,31 +1,32 @@
-
+import { useCart } from "../../HomePage/Cart/CartContext";
 
 const Wedding = () => {
+  const { addToCart } = useCart();
 
   const items = [
     {
       id: 1,
       title: "Bridal Gown",
       description: "Exquisite white gown with lace details for the bride.",
-      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
+      image: "https://i.ibb.co/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
     {
       id: 2,
       title: "Groom Tuxedo",
       description: "Classic black tuxedo with a modern fit.",
-      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
+      image: "https://i.ibb.co/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
     {
       id: 3,
       title: "Wedding Ring Set",
       description: "Elegant gold and diamond ring set for the couple.",
-      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
+      image: "https://i.ibb.co/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
     {
       id: 4,
       title: "Bridal Veil",
       description: "Delicate veil with intricate embroidery.",
-      image: "https://i.ibb.co.com/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
+      image: "https://i.ibb.co/5X69Pp4G/pexels-vireshstudio-1444442.jpg",
     },
   ];
 
@@ -44,7 +45,13 @@ const Wedding = () => {
               className="w-full h-48 object-cover rounded-md mb-4"
             />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-gray-600 text-sm">{item.description}</p>
+            <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+            <button
+              onClick={() => addToCart(item)}
+              className="px-3 py-1 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600"
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

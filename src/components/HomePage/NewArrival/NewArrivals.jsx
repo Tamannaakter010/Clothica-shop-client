@@ -1,70 +1,88 @@
 import { Link } from "react-router-dom";
 
+
+import Men1 from "../../../assets/shirt/shirt1.jpg";
+import Men2 from "../../../assets/shirt/shirt2.jpg";
+import Men3 from "../../../assets/shirt/shirt3.jpg";
+
+import Women1 from "../../../assets/women/women1.jpg";
+import Women2 from "../../../assets/women/women2.jpg";
+import Women3 from "../../../assets/women/women3.jpg";
+
+import Smartwatch1 from "../../../assets/watch/watch1.jpg";
+import Smartwatch2 from "../../../assets/watch/watch2.jpg";
+import Smartwatch3 from "../../../assets/watch/watch3.jpg";
+
+import DecorVase1 from "../../../assets/decor/vase1.jpg";
+import DecorVase2 from "../../../assets/decor/vase2.jpg";
+import DecorVase3 from "../../../assets/decor/vase3.jpg";
+
+import Necklace1 from "../../../assets/necklace/necklace1.jpg";
+import Necklace2 from "../../../assets/necklace/necklace2.jpg";
+import Necklace3 from "../../../assets/necklace/necklace3.jpg";
+
+import KidsToy1 from "../../../assets/toys/toys1.jpg";
+import KidsToy2 from "../../../assets/toys/toys2.jpg";
+import KidsToy3 from "../../../assets/toys/toys3.jpg";
+
 const NewArrivals = ({ products = [] }) => {
   const defaultProducts = [
     { 
       id: 1, 
       title: "Men's Shirt", 
-      images: [
-        "https://i.ibb.co/rRFfymGY/women.jpg",
-        "https://i.ibb.co/rRFfymGY/women.jpg",
-        "https://i.ibb.co/rRFfymGY/women.jpg"
-      ], 
-      link: "/shop/men" 
+      images: [Men1, Men2, Men3], 
+      type: "men"
     },
     { 
       id: 2, 
       title: "Women's Dress", 
-      images: [
-        "https://i.ibb.co/rRFfymGY/women.jpg",
-        "https://i.ibb.co/rRFfymGY/women.jpg",
-        "https://i.ibb.co/rRFfymGY/women.jpg"
-      ], 
-      link: "/shop/women" 
+      images: [Women1, Women2, Women3], 
+      type: "women"
     },
     { 
       id: 3, 
       title: "Smartwatch", 
-      images: [
-        "https://i.ibb.co/d5sSw6N/smartwatch1.jpg",
-        "https://i.ibb.co/q7kzQpm/smartwatch2.jpg",
-        "https://i.ibb.co/4d2R4cP/smartwatch3.jpg"
-      ], 
-      link: "/shop/electronics" 
+      images: [Smartwatch1, Smartwatch2, Smartwatch3], 
+      type: "smartwatch"
     },
     { 
       id: 4, 
       title: "Decor Vase", 
-      images: [
-        "https://i.ibb.co/W4jxnwBJ/homedecor1.jpg",
-        "https://i.ibb.co/Z8n3p3v/homedecor2.jpg",
-        "https://i.ibb.co/M8Rw7Kt/homedecor3.jpg"
-      ], 
-      link: "/shop/homedecor" 
+      images: [DecorVase1, DecorVase2, DecorVase3], 
+      type: "homedecor"   
     },
     { 
       id: 5, 
       title: "Necklace", 
-      images: [
-        "https://i.ibb.co/Z1wFj8t/necklace1.jpg",
-        "https://i.ibb.co/K5v3h0d/necklace2.jpg",
-        "https://i.ibb.co/rGHWk3t/necklace3.jpg"
-      ], 
-      link: "/shop/jewellery" 
+      images: [Necklace1, Necklace2, Necklace3], 
+      type: "jewellery"   
     },
     { 
       id: 6, 
       title: "Kids Toy", 
-      images: [
-        "https://i.ibb.co/3TzFbtv/kidstoy1.jpg",
-        "https://i.ibb.co/7gbmRyQ/kidstoy2.jpg",
-        "https://i.ibb.co/hCLJX4x/kidstoy3.jpg"
-      ], 
-      link: "/shop/kids" 
+      images: [KidsToy1, KidsToy2, KidsToy3], 
+      type: "kids"   
     },
   ];
 
   const productData = products.length > 0 ? products : defaultProducts;
+
+  const getLink = (product) => {
+    switch (product.type) {
+      case "women":
+        return `/women/${product.id}`;
+      case "smartwatch":
+        return `/smartwatch/${product.id}`;
+      case "homedecor":
+        return `/decorvase/${product.id}`;
+      case "kids":
+        return `/kidstoy/${product.id}`;
+      case "jewellery":
+        return `/necklace/${product.id}`;
+      default:
+        return `/shirt/${product.id}`;
+    }
+  };
 
   return (
     <section className="py-6 px-6 sm:px-12 lg:px-30 bg-gray-100 flex flex-col items-center">
@@ -73,15 +91,15 @@ const NewArrivals = ({ products = [] }) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 w-auto h-auto justify-center">
         {productData.map((product) => (
           <Link 
-            to={`/shirt/${product.id}`} 
             key={product.id}
+            to={getLink(product)}  
             state={{ product }}  
           >
             <div
               className="relative bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105 animate-fade-in"
               style={{ maxWidth: '250px', width: '100%' }}
             >
-              {/* Thumbnail (first image) */}
+             
               <img
                 src={product.images[0]}
                 alt={product.title}

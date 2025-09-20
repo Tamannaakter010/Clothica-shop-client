@@ -25,7 +25,7 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100 mt-12 py-6  sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-center mb-8 text-orange-600">Blog</h1>
       <div className="space-y-8">
         {posts.map((post) => (

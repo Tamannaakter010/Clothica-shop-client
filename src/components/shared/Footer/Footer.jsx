@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-neutral text-neutral-content py-12 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-        {/* Services */}
+
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Services</h6>
           <ul className="space-y-2">
@@ -13,7 +13,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Company */}
+   
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Company</h6>
           <ul className="space-y-2">
@@ -24,7 +24,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Legal */}
+     
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Legal</h6>
           <ul className="space-y-2">
@@ -34,7 +34,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Social */}
+ 
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Social</h6>
           <ul className="space-y-2">
@@ -45,7 +45,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Explore */}
+    
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Explore</h6>
           <ul className="space-y-2">
@@ -56,7 +56,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Apps */}
+      
         <div>
           <h6 className="footer-title mb-4 font-semibold text-lg">Apps</h6>
           <ul className="space-y-2">
@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Footer Bottom */}
+
       <div className="mt-12 text-center text-sm text-gray-400">
         &copy; {new Date().getFullYear()} Your Company. All rights reserved.
       </div>
