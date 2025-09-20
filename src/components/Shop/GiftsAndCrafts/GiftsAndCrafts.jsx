@@ -1,16 +1,29 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion"; // ✅ don’t forget this import
+import { motion } from "framer-motion";
 import { useCart } from "../../HomePage/Cart/CartContext"; 
+
+import gift1 from "../../../assets/gift & craft/gift & craft 1.jpg";
+import gift2 from "../../../assets/gift & craft/gift & craft 2.jpg";
+import gift3 from "../../../assets/gift & craft/gift & craft 3.jpg";
+import gift4 from "../../../assets/gift & craft/gift & craft 4.jpg";
+import gift5 from "../../../assets/gift & craft/gift & craft 5.jpg";
+import gift6 from "../../../assets/gift & craft/gift & craft 6.jpg";
+import gift7 from "../../../assets/gift & craft/gift & craft 7.jpg";
+import gift8 from "../../../assets/gift & craft/gift & craft 8.jpg";
 
 const GiftsAndCrafts = () => {
   const { addToCart } = useCart();
 
   const items = [
-    { id: 1, title: "Handmade Bracelet", description: "A colorful beaded bracelet.", images: ["https://i.ibb.co/W4jxnwBJ/homedecor.jpg"] },
-    { id: 2, title: "Clay Pot Decor", description: "Eco-friendly clay pot.", images: ["https://i.ibb.co/5hXhmwGF/man.jpg"] },
-    { id: 3, title: "Knitted Scarf", description: "Warm and cozy scarf.", images: ["https://i.ibb.co/YT8vtTbg/kids.jpg"] },
-    { id: 4, title: "Wooden Ornament", description: "Hand-carved wooden piece.", images: ["https://i.ibb.co/rRFfymwGY/women.jpg"] },
+    { id: 1, title: "Handmade Bracelet", description: "A colorful beaded bracelet.", images: [gift1] },
+    { id: 2, title: "Clay Pot Decor", description: "Eco-friendly clay pot.", images: [gift2] },
+    { id: 3, title: "Knitted Scarf", description: "Warm and cozy scarf.", images: [gift3] },
+    { id: 4, title: "Wooden Ornament", description: "Hand-carved wooden piece.", images: [gift4] },
+    { id: 5, title: "Decorative Candle", description: "Scented decorative candle.", images: [gift5] },
+    { id: 6, title: "Wall Hanging", description: "Beautiful handmade wall hanging.", images: [gift6] },
+    { id: 7, title: "Ceramic Vase", description: "Elegant ceramic vase.", images: [gift7] },
+    { id: 8, title: "Photo Frame", description: "Stylish wooden photo frame.", images: [gift8] },
   ];
 
   const [imageIndexes, setImageIndexes] = useState(Array(items.length).fill(0));
@@ -21,6 +34,11 @@ const GiftsAndCrafts = () => {
         i === index ? (val + 1) % items[i].images.length : val
       )
     );
+  };
+
+  const handleAddToCart = (item) => {
+    addToCart({ ...item, quantity: 1 });
+    alert(`${item.title} added to cart!`);
   };
 
   return (
@@ -45,7 +63,7 @@ const GiftsAndCrafts = () => {
             </h3>
             <p className="text-gray-600 text-sm mb-4">{item.description}</p>
             <button
-              onClick={() => addToCart(item)}
+              onClick={() => handleAddToCart(item)}
               className="px-3 py-1 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600"
             >
               Add to Cart
