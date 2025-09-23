@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import "./banner.css"; 
+import "./Banner.css"; 
 import Slider from "react-slick";
 import { motion, AnimatePresence } from "framer-motion";
 import "slick-carousel/slick/slick.css";
