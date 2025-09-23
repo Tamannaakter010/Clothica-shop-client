@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 import Men1 from "../../../assets/shirt/shirt1.jpg";
 import Men2 from "../../../assets/shirt/shirt2.jpg";
 import Men3 from "../../../assets/shirt/shirt3.jpg";
@@ -86,7 +85,9 @@ const NewArrivals = ({ products = [] }) => {
 
   return (
     <section className="py-6 px-6 sm:px-12 lg:px-30 bg-gray-100 flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">New Arrivals</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+        New Arrivals
+      </h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 w-auto h-auto justify-center">
         {productData.map((product) => (
@@ -99,15 +100,18 @@ const NewArrivals = ({ products = [] }) => {
               className="relative bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105 animate-fade-in"
               style={{ maxWidth: '250px', width: '100%' }}
             >
-             
+            
               <img
                 src={product.images[0]}
                 alt={product.title}
-                className="w-full p-6 h-54 object-cover rounded-t-lg"
+                className="w-full h-54 object-cover rounded-t-lg"
               />
 
-              <div className="absolute bottom-0 w-full bg-white bg-opacity-90 text-center py-2">
-                <h6 className="text-xs sm:text-sm lg:text-xl font-semibold text-gray-800">{product.title}</h6>
+              {/* Title Overlay */}
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-center py-2">
+                <h6 className="text-xs sm:text-sm lg:text-lg font-semibold text-white">
+                  {product.title}
+                </h6>
               </div>
             </div>
           </Link>

@@ -1,4 +1,6 @@
 
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 
 const Blog = () => {
@@ -25,8 +27,15 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 mt-12 py-6  sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-center mb-8 text-orange-600">Blog</h1>
+    <div className="min-h-screen text-center  bg-gray-100 mt-12 py-6  sm:px-6 lg:px-8">
+     <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{ fontSize: "2.5rem", fontWeight: "800", color: "#2d3748", marginBottom: "0.9rem" }}
+          >
+            Blog
+          </motion.h1>
       <div className="space-y-8">
         {posts.map((post) => (
           <div

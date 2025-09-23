@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Latest = () => {
   return (
-    <div className="bg-gray-800 shadow-md  ">
+    <div className="mt-0 bg-gray-800 shadow-md  ">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 py-2 sm:px-6 lg:px-8 gap-2">
         {/* Social Media Icons */}
         <div className="flex space-x-4 text-xl text-white">

@@ -1,9 +1,19 @@
 import "./Contact.css";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+
 
 export default function Contact() {
   return (
-    <div className="contact-container mt-18">
-      <h1 className="contact-title">Contact Us</h1>
+    <div className=" text-center contact-container mt-18">
+    <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{ fontSize: "2.5rem", fontWeight: "800", color: "#2d3748", marginBottom: "0.5rem" }}
+          >
+            CONTACT US
+          </motion.h1>
 
      
 

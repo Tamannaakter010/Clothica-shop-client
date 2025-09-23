@@ -49,7 +49,7 @@ const Deal = () => {
   ];
 
   return (
-    <section className="py-6 px-2 sm:px-4 lg:px-8 bg-gray-50">
+    <section className="py-6 px-2 sm:px-4 lg:px-8 bg-gray-800">
       <style>
         {`
           @keyframes fadeInUp {
@@ -68,7 +68,7 @@ const Deal = () => {
         `}
       </style>
 
-      <h2 className="text-sm font-bold text-center mb-4">🔥 Hot Deals</h2>
+      <h2 className="text-sm text-white font-bold text-center mb-4">🔥 Hot Deals</h2>
 
       <div className=" text-sm font-light flex justify-center overflow-visible">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl">

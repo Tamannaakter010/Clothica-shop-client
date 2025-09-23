@@ -7,6 +7,8 @@ import NewArrivals from "./NewArrival/NewArrivals";
 import BestSellers from "./BestSellers/BestSellers";
 import Promo from "./Promo/Promo";
 import OfferPopup from "./PopupModals/PopupModals";
+import Trending from "./Trending/Trending";
+import Brands from "./Brands/Brands";
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
@@ -24,8 +26,12 @@ export default function Home() {
   return (
     <div className="w-full">
       <Banner />
+    
       <Latest />
+        <Trending />
+       
       <Deal />
+       <Brands />
       <BestSellers />
       <FeaturedCategories />
       <Promo />

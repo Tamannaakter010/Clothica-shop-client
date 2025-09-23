@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 
 const servicesData = [
   { id: 1, label: "Business Year", value: 35 },
@@ -31,7 +34,15 @@ const Counter = ({ end }) => {
 
 const Services = () => {
   return (
-    <section className="py-16 px-6 bg-gray-50">
+    <section className="text-center py-16 px-6 bg-gray-50">
+      <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{ fontSize: "2.5rem", fontWeight: "800", color: "#2d3748", marginBottom: "0.5rem" }}
+          >
+            SERVICES
+          </motion.h1>
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">What We Do</h2>
         <p className="text-gray-600 mb-6">Provide perfect and practical services</p>

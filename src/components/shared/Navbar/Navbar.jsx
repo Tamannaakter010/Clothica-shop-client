@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { useCart } from "../../HomePage/Cart/CartContext";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 //import { useWishlist } from "../../HomePage/Wishlist/WishlistContext";
 
 const Navbar = ({ user, handleLogOut }) => {
@@ -9,20 +11,39 @@ const Navbar = ({ user, handleLogOut }) => {
   const [pagesOpen, setPagesOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // New state for search input
+  const [searchQuery, setSearchQuery] = useState(""); 
+  const text = "CloThiCa".split("");
 
   const { cartItems } = useCart();
   //const { wishlistItems } = useWishlist();
 
   return (
-    <nav className="fixed top-0 left-0 w-full mb-2 bg-gray-600 text-white z-50 h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
-   
-      <div className="font-bold text-xl">CloThiCa</div>
+   <nav className="fixed top-0 left-0 w-full mb-2 bg-gray-700  text-white z-50 h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
 
+   
+    <div className="font-bold text-xl flex space-x-1">
+      {text.map((letter, i) => (
+        <motion.span
+          key={i}
+          animate={{
+            y: [0, -8, 0], // move up & down
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            delay: i * 0.4, // stagger each letter
+            ease: "easeInOut",
+          }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </div>
+ 
       {/* Mobile Menu Button */}
       <div className="lg:hidden">
         <button
-          className="btn btn-ghost p-1 h-8 w-8"
+          className="btn btn-ghost p-1 h-8 w-8  "
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
@@ -31,11 +52,11 @@ const Navbar = ({ user, handleLogOut }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-0 left-0 w-64 h-full bg-gray-600 z-50 transform transition-transform duration-300 ${
+        className={`lg:hidden fixed top-0 left-0 w-64 h-full bg-gray-700 z-50 transform transition-transform duration-300 ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center px-4 py-3 border-b bg-gray-600 border-gray-200">
+        <div className="flex justify-between items-center px-4 py-3 border-b bg-gray-400 border-gray-200">
           <span className="font-bold text-lg">Menu</span>
           <button
             className="btn btn-ghost p-2.5 h-8 w-8"
@@ -51,7 +72,7 @@ const Navbar = ({ user, handleLogOut }) => {
               to="/"
               onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) =>
-                isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                isActive ? "text-black font-semibold" : "text-white hover:text-gray-200"
               }
               style={{ textDecoration: "none" }}
             >
@@ -165,13 +186,13 @@ const Navbar = ({ user, handleLogOut }) => {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex items-center gap-6">
-        <ul className="menu menu-horizontal gap-x-3 bg-gray-600 text-sm">
+      <div className="hidden bg-gray-700 lg:flex items-center gap-6">
+        <ul className="menu menu-horizontal gap-x-3 bg-gray-700 text-sm">
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                isActive ? "text-blue-700 font-semibold" : "text-white hover:text-gray-200"
               }
               style={{ textDecoration: "none" }}
             >
@@ -270,7 +291,7 @@ const Navbar = ({ user, handleLogOut }) => {
             value={searchQuery} // Bind the input value to state
             onChange={(e) => setSearchQuery(e.target.value)} // Update state on change
           />
-          <FaSearch className="absolute right-2 text-gray-600 cursor-pointer" />
+          <FaSearch className="absolute right-2 text-gray-800 cursor-pointer" />
         </div>
       </div>
 
@@ -315,7 +336,7 @@ const Navbar = ({ user, handleLogOut }) => {
           <Link
             to="/login"
             className={({ isActive }) =>
-              isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+              isActive ? "text-amber-100 font-semibold" : "text-white hover:text-gray-200"
             }
             style={{ textDecoration: "none" }}
             onClick={() => setUserDropdownOpen(false)}

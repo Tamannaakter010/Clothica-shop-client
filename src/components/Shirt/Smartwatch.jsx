@@ -34,7 +34,7 @@ const Smartwatch = ({ product }) => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-10 p-6 pt-24">
+    <div className="flex flex-col lg:flex-row gap-10 p-6 pt-8">
 
       <div className="basis-full lg:basis-3/5 flex flex-col items-center lg:items-start mt-24">
         <img
