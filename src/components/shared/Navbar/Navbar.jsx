@@ -77,7 +77,7 @@ const Navbar = ({ user, handleLogOut }) => {
             className="bg-gray-100 outline-none px-2 py-1 w-full"
           />
           <button type="submit">
-            <FaSearch className="text-gray-500 cursor-pointer" />
+            <FaSearch className="text-gray-500 mt-2 cursor-pointer" />
           </button>
         </form>
 
