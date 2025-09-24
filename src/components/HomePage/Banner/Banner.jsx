@@ -31,12 +31,13 @@ const Banner = () => {
     <Slider className="custom-slider" {...settings}>
       {slides.map((slide, index) => (
         <div key={index}>
-          <div
-            className="mt-5 w-full flex flex-col md:flex-row items-center justify-between 
-            bg-gradient-to-r from-orange-500 via-yellow-400 to-yellow-300 p-4 md:p-10"
-          >
+           <div
+  className="mt-6 w-full flex flex-col md:flex-row items-center justify-between 
+  bg-gradient-to-r from-orange-500 via-yellow-400 to-yellow-300 min-h-[20rem] "
+>
+
             {/* Left Text */}
-            <div className="w-full md:w-2/5 text-center md:text-left mb-6 md:mb-0">
+            <div className="w-full md:w-2/5 text-center md:text-left mb-6 mt-12 md:mb-0 sm:mt-12">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={slide.title}
@@ -56,7 +57,7 @@ const Banner = () => {
             </div>
 
             {/* Right Image */}
-            <div className="w-full md:w-3/5 flex justify-center">
+            <div className="w-full h-120 md:w-3/5 sm:w-3/5  flex justify-center ">
               <motion.img
                 key={slide.image}
                 src={slide.image}
