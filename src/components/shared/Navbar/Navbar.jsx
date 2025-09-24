@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { useCart } from "../../HomePage/Cart/CartContext";
 // eslint-disable-next-line no-unused-vars
@@ -15,48 +15,46 @@ const Navbar = ({ user, handleLogOut }) => {
   const text = "CloThiCa".split("");
 
   const { cartItems } = useCart();
-  //const { wishlistItems } = useWishlist();
+  const navigate = useNavigate(); // 🔹 for navigation on search submit
+
+  // 🔹 handle search submit
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim() !== "") {
+      navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+      setMobileMenuOpen(false); // optional: close mobile menu on search
+    }
+  };
 
   return (
-   <nav className="fixed top-0 left-0 w-full mb-2 bg-gray-700  text-white z-50 h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 w-full mb-2 bg-gray-700 text-white z-50 h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
 
-   
-    <div className="font-bold text-xl flex space-x-1">
-      {text.map((letter, i) => (
-        <motion.span
-          key={i}
-          animate={{
-            y: [0, -8, 0], // move up & down
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            delay: i * 0.4, // stagger each letter
-            ease: "easeInOut",
-          }}
-        >
-          {letter}
-        </motion.span>
-      ))}
-    </div>
- 
-      {/* Mobile Menu Button */}
-      <div className="lg:hidden">
-        <button
-          className="btn btn-ghost p-1 h-8 w-8  "
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
-        </button>
+      {/* Logo animation */}
+      <div className="font-bold text-xl flex space-x-1">
+        {text.map((letter, i) => (
+          <motion.span
+            key={i}
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: i * 0.4,
+              ease: "easeInOut",
+            }}
+          >
+            {letter}
+          </motion.span>
+        ))}
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-0 left-0 w-64 h-full bg-gray-700 z-50 transform transition-transform duration-300 ${
-          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        className={`lg:hidden text-black fixed top-0 right-0 w-1/2 h-full bg-white z-50 transform transition-transform duration-300 ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center px-4 py-3 border-b bg-gray-400 border-gray-200">
+        <div className="flex justify-between items-center px-4 py-3 border-b bg-gray-300 border-gray-200">
           <span className="font-bold text-lg">Menu</span>
           <button
             className="btn btn-ghost p-2.5 h-8 w-8"
@@ -66,13 +64,30 @@ const Navbar = ({ user, handleLogOut }) => {
           </button>
         </div>
 
-        <ul className="menu menu-compact flex flex-col gap-3 p-4 text-white text-lg">
+        {/* 🔹 Mobile Search */}
+        <form
+          onSubmit={handleSearch}
+          className="px-4 py-3 border-b border-gray-200 flex items-center bg-gray-100 rounded-full"
+        >
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="bg-gray-100 outline-none px-2 py-1 w-full"
+          />
+          <button type="submit">
+            <FaSearch className="text-gray-500 cursor-pointer" />
+          </button>
+        </form>
+
+        <ul className="menu menu-compact flex flex-col gap-3 p-4 text-black text-lg">
           <li>
             <NavLink
               to="/"
               onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) =>
-                isActive ? "text-black font-semibold" : "text-white hover:text-gray-200"
+                isActive ? "text-blue-600 font-bold" : "text-black font-bold hover:text-gray-200"
               }
               style={{ textDecoration: "none" }}
             >
@@ -84,7 +99,7 @@ const Navbar = ({ user, handleLogOut }) => {
           <li>
             <button
               onClick={() => setShopOpen(!shopOpen)}
-              className="w-full text-left text-white hover:text-gray-200"
+              className="w-full text-left text-black font-bold hover:text-gray-200"
             >
               Shop
             </button>
@@ -99,7 +114,7 @@ const Navbar = ({ user, handleLogOut }) => {
                         setMobileMenuOpen(false);
                       }}
                       className={({ isActive }) =>
-                        isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                        isActive ? "text-blue-600 font-semibold" : "text-black hover:text-gray-200"
                       }
                       style={{ textDecoration: "none" }}
                     >
@@ -115,7 +130,7 @@ const Navbar = ({ user, handleLogOut }) => {
           <li>
             <button
               onClick={() => setPagesOpen(!pagesOpen)}
-              className="w-full text-left text-white hover:text-gray-200"
+              className="w-full text-left text-black font-bold hover:text-gray-200"
             >
               Pages
             </button>
@@ -129,7 +144,7 @@ const Navbar = ({ user, handleLogOut }) => {
                       setMobileMenuOpen(false);
                     }}
                     className={({ isActive }) =>
-                      isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                      isActive ? "text-blue-600 font-semibold" : "text-black hover:text-gray-200"
                     }
                     style={{ textDecoration: "none" }}
                   >
@@ -144,7 +159,7 @@ const Navbar = ({ user, handleLogOut }) => {
                       setMobileMenuOpen(false);
                     }}
                     className={({ isActive }) =>
-                      isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                      isActive ? "text-blue-600 font-semibold" : "text-black hover:text-gray-200"
                     }
                     style={{ textDecoration: "none" }}
                   >
@@ -159,7 +174,7 @@ const Navbar = ({ user, handleLogOut }) => {
                       setMobileMenuOpen(false);
                     }}
                     className={({ isActive }) =>
-                      isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                      isActive ? "text-blue-600 font-semibold" : "text-black hover:text-gray-200"
                     }
                     style={{ textDecoration: "none" }}
                   >
@@ -175,11 +190,23 @@ const Navbar = ({ user, handleLogOut }) => {
               to="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) =>
-                isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
+                isActive ? "text-blue-600 font-bold" : "text-black font-bold hover:text-gray-200"
               }
               style={{ textDecoration: "none" }}
             >
               Blog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-bold" : "text-black font-bold hover:text-gray-200"
+              }
+              style={{ textDecoration: "none" }}
+            >
+              Contact
             </NavLink>
           </li>
         </ul>
@@ -282,33 +309,24 @@ const Navbar = ({ user, handleLogOut }) => {
           </li>
         </ul>
 
-        {/* Search */}
-        <div className="relative flex items-center">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-white text-black px-2 py-1 rounded text-sm w-24 sm:w-40 focus:outline-none focus:ring-1 focus:ring-pink-500"
-            value={searchQuery} // Bind the input value to state
-            onChange={(e) => setSearchQuery(e.target.value)} // Update state on change
-          />
-          <FaSearch className="absolute right-2 text-gray-800 cursor-pointer" />
-        </div>
+        {/* 🔹 Desktop Search */}
+       <form onSubmit={handleSearch} className="relative">
+  <input
+    type="text"
+    placeholder="Search..."
+    className="bg-white text-black px-2 pr-8 py-1 rounded text-sm w-24 sm:w-40 focus:outline-none focus:ring-1 focus:ring-pink-500"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+  />
+  <button type="submit" className="absolute right-1 top-1/2 transform -translate-y-1/2">
+    <FaSearch className="text-gray-800 cursor-pointer" />
+  </button>
+</form>
+
       </div>
 
       {/* Right Icons */}
       <div className="flex items-center gap-4">
-        {/* Wishlist 
-        <Link
-          to="/wishlist"
-          className="relative flex items-center gap-1 text-white hover:text-gray-200"
-        >
-          <FaHeart className="text-lg" />
-          <span className="badge badge-secondary absolute -top-2 -right-2 text-xs">
-            {wishlistItems.length}
-          </span>
-        </Link>
-        */}
-
         {/* Cart */}
         <Link
           to="/cart"
@@ -324,56 +342,62 @@ const Navbar = ({ user, handleLogOut }) => {
         <div className="relative">
           <button
             onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-            className="flex items-center gap-1 hover:bg-gray-200 px-2 py-1 rounded"
+            className="flex items-center gap-1 hover:bg-gray-400 px-2 py-1 rounded"
           >
             <FaUser className="text-lg" />
           </button>
-         {userDropdownOpen && (
-  <ul className="absolute right-0 mt-2 w-40 bg-gray-300 text-white rounded shadow p-2">
-    {!user ? (
-      <>
-        <li>
-          <Link
-            to="/login"
-            className={({ isActive }) =>
-              isActive ? "text-amber-100 font-semibold" : "text-white hover:text-gray-200"
-            }
-            style={{ textDecoration: "none" }}
-            onClick={() => setUserDropdownOpen(false)}
+          {userDropdownOpen && (
+            <ul className="absolute right-0 mt-2 w-40 bg-white text-black rounded shadow p-2">
+              {!user ? (
+                <>
+                  <li>
+                    <Link
+                      to="/login"
+                      style={{ textDecoration: "none" }}
+                      onClick={() => setUserDropdownOpen(false)}
+                      className="text-black hover:text-gray-400"
+                    >
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/register"
+                      style={{ textDecoration: "none" }}
+                      onClick={() => setUserDropdownOpen(false)}
+                      className="text-black hover:text-gray-400"
+                    >
+                      Register
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link
+                      to="/account"
+                      onClick={() => setUserDropdownOpen(false)}
+                    >
+                      My Account
+                    </Link>
+                  </li>
+                  <li>
+                    <button onClick={handleLogOut}>Logout</button>
+                  </li>
+                </>
+              )}
+            </ul>
+          )}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden">
+          <button
+            className="btn btn-ghost p-1 h-8 w-8"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/register"
-            className={({ isActive }) =>
-              isActive ? "text-blue-400 font-semibold" : "text-white hover:text-gray-200"
-            }
-            style={{ textDecoration: "none" }}
-            onClick={() => setUserDropdownOpen(false)}
-          >
-            Register
-          </Link>
-        </li>
-      </>
-    ) : (
-      <>
-        <li>
-          <Link
-            to="/account"
-            onClick={() => setUserDropdownOpen(false)}
-          >
-            My Account
-          </Link>
-        </li>
-        <li>
-          <button onClick={handleLogOut}>Logout</button>
-        </li>
-      </>
-    )}
-  </ul>
-)}
+            {mobileMenuOpen ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
+          </button>
         </div>
       </div>
     </nav>
